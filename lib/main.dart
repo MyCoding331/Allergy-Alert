@@ -24,7 +24,7 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
+
   MyAppState createState() => MyAppState();
 }
 
@@ -37,7 +37,7 @@ class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Allergy App',
+      title: 'Allergy Alert',
       theme: ThemeData(
         primaryColor: Colors.blue,
         primarySwatch: Colors.blue,
