@@ -6,7 +6,7 @@ import 'package:allergyalert/model/appwrite_sevices.dart';
 import 'package:allergyalert/model/loader.dart';
 import 'package:allergyalert/model/local_storage_product.dart';
 import 'package:flutter/services.dart';
-// import 'package:allergyalert/screens/addProduct/add_product_page.dart';
+
 import 'package:allergyalert/screens/addProduct/add_product_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -42,10 +42,10 @@ class _BarCodeDetailPageState extends State<BarCodeDetailPage> {
   void initState() {
     super.initState();
     _getAllergies();
-    // fetchProductDetails();
+
 
     getProduct();
-    // _addBarcodes(widget.barcode);
+ 
   }
 
   Future<void> createDocument(
@@ -162,28 +162,7 @@ class _BarCodeDetailPageState extends State<BarCodeDetailPage> {
     }
   }
 
-  // Future<void> _addBarcodes(
-  //     String barcode, String name, String brand, String image) async {
-  //   final prefs = await SharedPreferences.getInstance();
-  //   final productData = {
-  //     'barcode': barcode,
-  //     'name': name,
-  //     'brand': brand,
-  //     'image': image,
-  //   };
-  //   final productJson = jsonEncode(productData);
-  //   await prefs.setString(barcode, productJson);
-
-  //   // print('added data: $productJson');
-  //   setState(() {
-  //     barcodes.add(productJson);
-  //     saveBarcodes();
-  //     if (kDebugMode) {
-  //       print('added data: $barcodes');
-  //     }
-  //     _barcodesController.clear(); // Clear the text field before saving
-  //   });
-  // }
+ 
 
   Future<void> _addBarcodes(
       String barcode, String name, String brand, String image) async {
@@ -193,21 +172,7 @@ class _BarCodeDetailPageState extends State<BarCodeDetailPage> {
   Future<Product?> getProduct() async {
     var barcode = widget.barcode;
 
-    // Check if the product is available in local storage
-    // final cachedProduct = await LocalStorage.getProduct(barcode);
-    // print('Cached product: $cachedProduct');
-
-    // if (cachedProduct != null) {
-    //   setState(() {
-    //     product = cachedProduct.product;
-    //     status = cachedProduct.result!.id!;
-    //     filterIngredients();
-
-    //     // Add any additional desired logic for handling the cached product
-    //   });
-    //   return product;
-    // }
-
+  
     final ProductQueryConfiguration configuration = ProductQueryConfiguration(
       barcode,
       language: OpenFoodFactsLanguage.ENGLISH,
@@ -232,10 +197,7 @@ class _BarCodeDetailPageState extends State<BarCodeDetailPage> {
         _addBarcodes(barcode, product!.productName!, product!.brands!,
             product!.imageFrontUrl!);
 
-        // Save the product details in local storage
-        // final productJson = jsonEncode(result.toJson());
-        // LocalStorage.saveProduct(result, productJson);
-        // print('Saved to local storage $productJson');
+     
       });
       return result.product;
     } else {
@@ -726,10 +688,7 @@ class _BarCodeDetailPageState extends State<BarCodeDetailPage> {
                             const SizedBox(height: 8),
                             Container(
                               decoration: BoxDecoration(
-                                // border: Border.all(
-                                //   color: Colors.indigo,
-                                //   width: 2.0,
-                                // ),
+                             
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: Table(
